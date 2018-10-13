@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <a href="/blog">Main Blog</a>
+    <a href="/new-post">Add a Blog Entry</a>
+    <h1>Build a Blog!</h1>
+    <form method='post'>
+       
+    </form>
+
+    <hr />
+
+    {% if blogs|length == 0 %}
+    <p>No blogs yet</p>
+    {% else %}
+
+        
+        {% for blog in blogs %}
+            <h2>
+                <form>
+                <a href='./blog?id={{blog.id}}'>{{blog.name}}</a>
+                <input type="hidden" name="blog-id" value="{{blog.id}}" />
+                </form>
+            </h2>
+                
+            <p>{{blog.body}}</p>
+            
+    
+        {% endfor %}
+        
+
+    {% endif %}
+
+    <hr />
+
+
+  
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <a href="/blog">Main Blog</a>
+    <a href="/new-post">Add a Blog Entry</a>
+    <h1>Add a Blog Entry</h1>
+    
+        <style>
+            .error {color: red;}
+        </style>
+    
+    
+    <form method='post' id="formid">
+        <label>
+            Title for your new blog:<br>
+            <input type="text" name='blog' /><br>
+            <p class="error">{{title_error}}</p>
+        </label>
+        <label>Your New Blog:<br>
+            <textarea form="formid" rows="10" cols="20" name='body' ></textarea><br>
+            <p class="error">{{blog_error}}</p>
+        </label>
+        <input type="submit" name='submit' value='Add Entry' />
+    </form>
+    
+
+    <hr />
+
+
+
+{% endblock %}
