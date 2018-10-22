@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <a href="/blog">Main Blog</a>
-    <a href="/new-post">Add a Blog Entry</a>
-    <h1>Build a Blog!</h1>
+    
+    <h1>{{title}}</h1>
+    
     <form method='post'>
        
     </form>
@@ -11,10 +11,11 @@
     <hr />
 
     {% if blogs|length == 0 %}
+
     <p>No blogs yet</p>
     {% else %}
 
-        
+
         {% for blog in blogs %}
             <h2>
                 <form>
@@ -24,16 +25,14 @@
             </h2>
                 
             <p>{{blog.body}}</p>
+
             
-    
+            <p><em>written by </em> <a href='./blog?user={{blog.owner.username}}'>{{blog.owner.username}}</a></p>
+            
         {% endfor %}
-        
 
     {% endif %}
 
     <hr />
-
-
-  
 
 {% endblock %}
